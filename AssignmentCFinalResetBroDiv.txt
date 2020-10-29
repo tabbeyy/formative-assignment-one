@@ -1,0 +1,185 @@
+####################################
+#Input and out-of-range number check.
+####################################
+
+	IN
+	STO	n
+	STO	whole
+	BRZ	final
+	SUB	one
+	BRZ	final
+	LDA	one
+	STO	counter
+	STO	incr
+	OUT
+
+####################################
+#Start of first half of the program (before the square root of the number)
+#and check if it's ready for the second half (after square root).
+####################################
+
+loop	LDA	counter
+    	ADD 	incr
+	SUB	whole
+	BRP	half
+	ADD	whole
+    	STO 	counter
+
+####################################
+#Initialization of "times" variable and praparation for the division loop;
+#this way the algorithm can get through the low numbers faster.
+####################################
+
+	ADD	counter
+	ADD	counter
+	STO	times
+	ADD	times
+	ADD	times
+	ADD	counter
+	STO	times
+	SUB	times
+	STO	whole
+	LDA	n
+
+####################################
+#The loop
+####################################
+
+first	STO	temp
+	LDA	whole
+	ADD	ten
+	STO	whole
+	LDA	temp
+    	SUB 	times
+	BRZ	output
+	BRP	first
+
+####################################
+#Preparing for the same, but more precise loop.
+####################################
+	
+	LDA	whole
+	SUB	ten
+	STO	whole
+	LDA	temp
+
+precise	STO	temp
+	LDA	whole
+	ADD	one
+	STO	whole
+	LDA	temp
+    	SUB 	counter
+	BRZ	output
+	BRP	precise
+	BR	loop
+
+####################################
+#Section where if a number is a divisor, it is printed.
+#The "whole" value stores the product of the division; when the product is equal or greater than the divisor,
+#	then that means we have reached or surpassed the square root of n.
+#After the square root threshold has been reached, there is a precisely equal number of divisers left to find, 
+#	thus that amount in "numb" is stored as well).
+#If square root of n was not reached - loop repeats.
+####################################
+	
+output	LDA	counter
+	OUT
+	SUB	whole	
+	BRP	half
+	LDA	numb
+	ADD	one
+	STO	numb
+
+####################################
+#If the number is not divisible by two, then it will skip further even numbers, thus halving the amount of cycles needed.
+####################################
+
+	SUB	one
+	BRZ	insert
+	BR	loop
+
+insert	LDA	whole
+	STO	bigdiv
+	LDA	two
+	SUB	counter
+	BRP	loop	
+	LDA	two
+	STO	incr
+	BR	loop
+
+####################################
+#The dataset:
+####################################
+
+n	DAT		#The number
+counter	DAT		#The counter incrementing from 2 to n.
+temp	DAT		#Temporary value for calculations.
+whole	DAT		#Variable, which stores the product of division.
+bigdiv	DAT		#Variable, which stores the first product of division.
+incr	DAT		#The incremental step.
+one	DAT	001
+two	DAT	002
+ten	DAT	010
+numb	DAT	000	#Variable, which stores the number of divisors left to find (in the second half).
+times	DAT		#Variable, which is a multiple of the counter.
+	
+########################################################################
+#The second half of the program
+########################################################################
+
+####################################
+#The second printing code block, which also decrements the "numb" value as it finds further
+#	divisors of n.
+####################################
+
+output2	LDA	counter
+	OUT
+	LDA	numb
+	SUB	one
+	STO	numb
+
+####################################
+#Check if the number of divisors left ("numb") is zero and if so ends the program,
+#	otherwise, if the number of divisors left is one, then it jumps forward,
+#	otherwise, it continues to the second Loop.
+####################################
+
+half	LDA	numb
+	BRZ	final
+	SUB	one
+	BRZ	check
+
+####################################
+#The Second Loop (much more efficient since not keeping track of "whole" value anymore)
+#	and there is no more need to multiply the "counter", since the divisors themselves
+#	are quite large at this point.
+####################################
+
+next	LDA	counter
+	ADD 	incr
+    	STO 	counter
+	LDA	n
+
+again 	SUB	counter	
+	BRZ	output2
+	BRP	again
+	BR	next
+
+####################################
+#Prints the second to last divisor, which was stored in the first part.
+####################################
+
+check	STO	numb
+	LDA	bigdiv
+	OUT
+
+####################################
+#Print n and Halt.
+####################################
+
+final	LDA	n
+	OUT
+stop	HLT
+
+####################################
+

@@ -1,0 +1,149 @@
+####################################
+#input and out-of-range number check
+####################################
+	IN
+	STO	n
+	STO	whole
+	BRZ	final
+	SUB	one
+	BRZ	final
+	LDA	one
+	STO	counter
+	OUT
+####################################
+#start of first half of the program and check if ready for second half
+####################################
+
+loop	LDA	stop
+	STO	ifwhole
+	LDA	n
+	STO	temp
+	LDA	counter
+    	ADD 	one
+    	STO 	counter
+
+####################################
+#initialization of "times" variable and praparation for loop
+#the point of this is that this way the algorithm can get through the low numbers faster
+####################################
+
+	ADD	counter
+
+tim	STO 	times
+	ADD	times
+	STO 	times
+	ADD	times
+	STO	times
+	
+	SUB	times
+	STO	whole
+	LDA	temp
+####################################
+#The loop
+####################################
+
+first	STO	temp
+	LDA	whole
+	ADD	eight
+	STO	whole
+	LDA	temp
+    	SUB 	times
+	BRZ	out
+	BRP	first
+####################################
+#preparing for the same, but more precise loop
+####################################
+
+	LDA	whole
+	SUB	eight
+	STO	whole
+	LDA	ifwhole
+	BRZ	change
+	LDA	prewhol
+	BR	cont
+change	LDA	counter
+cont	STO	times
+	LDA	temp
+
+second	STO	temp
+	LDA	whole
+	ADD	one
+	STO	whole
+	LDA	temp
+    	SUB 	times
+	BRZ	out
+	BRP	second
+	BR	notdiv
+
+####################################
+#section where if a number is a divisor, it is printed
+#if number is not a divisor, it is disgarded
+#most importantly: if the number is not divisible by two, then it will skip further even numbers, thus halving the amount of cycles needed
+#initialising "end" value, so that the first less efficient part of the program would end at the most precise moment,
+#	which is the square root of n (after that there is a precisely equal number of divisers, thus that amount in "numb" is stored as well)
+#if square root of n was not reached - loop repeats
+####################################
+	
+out	LDA	ifwhole
+	BRZ	print
+	LDA	whole
+	ADD	counter
+	STO	counter
+print	LDA	counter
+	OUT
+	SUB	whole
+	BRP	sqrche
+	LDA	numb
+	ADD	one
+	STO	numb
+	BR	loop
+
+sqrche	LDA	numb
+	SUB	one
+	STO	numb
+	BRZ	final
+	BR	loop
+
+notdiv	LDA	counter
+	SUB	whole
+	BRP	again
+	BR	loop
+
+again	LDA	one
+	SUB	ifwhole
+	BRZ	check
+	STO	ifwhole
+	LDA	whole
+	STO	prewhol
+	ADD	prewhol
+	BR	tim
+
+check	LDA	whole
+	ADD	counter
+	STO	counter
+	BR	loop
+
+
+####################################
+#The dataset:
+####################################
+
+n	DAT		#the number
+counter	DAT		#the counter incrementing from 1 to n
+temp	DAT		#temporary value for calculations
+whole	DAT	000	#the counter indicating nmumber of divisions
+ifwhole	DAT
+prewhol	DAT
+one	DAT	001
+eight	DAT	008
+numb	DAT	000	#variable which stores the number of divisors left to find
+times	DAT		#variable which is a multiple of the counter
+
+####################################
+#print n and halt
+####################################
+
+final	LDA	n
+	OUT
+stop	HLT
+
