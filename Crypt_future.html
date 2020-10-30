@@ -17,10 +17,15 @@
         color: #f5f5f5;
         padding: 32px;
     }
-
+    footer .glyphicon {
+    font-size: 20px;
+     margin-bottom: 20px;
+    color: #f4511e;
+    }
   </style>
 </head>
 <body>
+    <a id="TopOfPage"></a>
     <nav class="navbar navbar-inverse navbar-fixed-top" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -32,7 +37,15 @@
             <ul  class="nav navbar-nav navbar-right">
                 <li><a href="#">Page 1</a></li>
                 <li><a href="Secur_modern.html">Security Today</a></li>
-                <li class="active"><a href="Crypt_future.html">The Future Of Cybersecurity</a></li>
+                <li class="active; dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="Crypt_future.html">The Future Of Cybersecurity
+                    <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#section1">Introduction</a></li>
+                              <li><a href="#section2">Quantum Computers</a></li>
+                              <li><a href="#section3">Post-quantum Cryptography</a></li>
+                            </ul>
+                </li>
             </ul>
         </div>
     </nav>
@@ -86,13 +99,14 @@
             </a>
     </div>
 
-    <div class="container-fluid">
+    <a id="section1"></a>
         <div class="container">
             <h2 style="text-align: center">Introduction</h2><br><br>
             <h4><p>&nbsp;&nbsp;&nbsp;&nbsp;More of our personal lives and business activities are being conducted online than ever, making cybersecurity a key 
             issue of our time. Understanding what the future of cybersecurity is will show you how to make the best use of your 
             resources and stay safe not just today, but tomorrow too. 
             The future of cybersecurity is hard to predict because the industry is constantly evolving in response to the shifting behaviors of cybercriminals and the new attacks they develop.</p> 
+            <br><br>
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Here’s some insights from industry insiders on what they think the future of cybersecurity will look like:</p></h4>
             <br>
             <blockquote cite="https://www.disruptordaily.com/">“The future of cybersecurity will be largely determined by what hackers 
@@ -121,7 +135,7 @@
             CISA, President & CEO of Electrosoft Services)</blockquote>
             <br>
         </div>
-        <hr>
+        <hr><a id="section2"></a>
         <div class="container">
             <h2 style="text-align: center">An Emerging Threat: Quantum Computers</h2><br><br>
             <h4>
@@ -146,8 +160,14 @@
                     non-commercial quantum computer measuring 2.5 by 2.5 meters that operates on 20 qubits. A quantum computer with 
                     as few as 50 qubits would be faster than a supercomputer that uses many processors.</p>
             </h4>
+            <h4><br><br><p style="text-align:center">The videos below show in more detail how quantum computers work:</p><br><br>
+                <div class="btn-group btn-group-justified">
+                        <a href="https://www.youtube.com/watch?v=JhHMJCUmq28" class="btn btn-primary">Quantum Computers Explained – Limits of Human Technology(Kurzgesagt)</a>
+                        <a href="https://www.youtube.com/watch?v=PzL-oXxNGVM" class="btn btn-primary">Quantum Computers - FULLY Explained!(ColdFusion)</a>
+                </div>
+            </h4>
         </div>
-        <hr>
+        <hr><a id="section3"></a>
         <div class="container">
             <h2 style="text-align: center">Protecting Data From Quantum Computers: Post-quantum Cryptography</h2><br><br>
             <h4>
@@ -169,6 +189,12 @@
                     on how much progress is made in the development of quantum computers and on what effective, quantum-resistant 
                     encryption methods are being developed.</p>
             </h4>
+            <h4><br><br><p style="text-align:center">To find out more about post-quantum cryptography, watch the videos below:</p><br><br>
+                <div class="btn-group btn-group-justified">
+                        <a href="https://www.youtube.com/watch?v=6qD-T1gjtKw" class="btn btn-primary">Understanding and Explaining Post-Quantum Crypto with Cartoons(RSA Conference)</a>
+                        <a href="https://www.youtube.com/watch?v=lvTqbM5Dq4Q" class="btn btn-primary">How Quantum Computers Break Encryption | Shor's Algorithm Explained(minutephysics)</a>
+                </div>
+            </h4>
         </div>
     </div>
 
@@ -186,7 +212,10 @@
             </div>
     </div>
 
-    <footer class="text-center">
+    <footer class="container-fluid text-center">
+            <a href="#TopOfPage" title="To Top">
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
             <p>Page Created For Programming Practical</p>
     </footer>
 
