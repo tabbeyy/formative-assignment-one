@@ -1,211 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-    <title>Security Today</title>
-
-    <style>
-    	body {
-    		background-color: #eee;
-    	}
-    	.container-fluid {
-    		background-color: #444;
-    	}
-    	.jumbotron {
-    		background-color: #2d2d30;
-	        color: #f5f5f5;
-	        padding: 32px;
-    	}
-    	p {
-		  font-family:	"Trebuchet MS", Helvetica, sans-serif;
-		  font-size: 20px;
-		}
-    	.container {
-	        padding-top: 70px;
-	        padding-bottom: 70px;
-   		 }
-   		 footer {
-	        background-color: #2d2d30;
-	        color: #f5f5f5;
-	        padding: 32px;
-    	}
-    	hr {
-    		padding: 4px;
-    		color: #2d2d30;
-    		height:	2px;
-    	}
-
-
-    </style>
-
-  </head>
-  <body>
-  	<nav class="navbar navbar-inverse navbar-fixed-top" data-spy="affix" data-offset-top="197">
+<head>
+  <title>Cybersecurity</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .container {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+    footer {
+        background-color: #2d2d30;
+        color: #f5f5f5;
+        padding: 32px;
+    }
+    footer .glyphicon {
+    font-size: 20px;
+     margin-bottom: 20px;
+    color: #f4511e;
+    }
+  </style>
+</head>
+<body>
+    <a id="TopOfPage"></a>
+    <nav class="navbar navbar-inverse navbar-fixed-top" data-spy="affix" data-offset-top="197">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
+                <a class="navbar-brand" href="index.html">WebSiteName</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
             </ul>
             <ul  class="nav navbar-nav navbar-right">
                 <li><a href="#">Page 1</a></li>
-                <li><a href="#">Page 3</a></li>
-                <li class="active"><a href="#">Page 2</a></li>
+                <li><a href="Secur_modern.html">Security Today</a></li>
+                <li class="active; dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="Crypt_future.html">The Future Of Cybersecurity
+                    <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#section1">Introduction</a></li>
+                              <li><a href="#section2">Quantum Computers</a></li>
+                              <li><a href="#section3">Post-quantum Cryptography</a></li>
+                            </ul>
+                </li>
             </ul>
         </div>
     </nav>
-    <div class="container" style="text-align: center; padding-top: 70px">
-        <h1>Modern cybersecurity</h1>
+              
+
+    <div class="container-fluid" style="text-align: center; padding-top: 70px">
+        <h1>The Future Of Cybersecurity</h1>
         <br></br>
     </div>
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+          
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img class="center-block" src="https://s.aolcdn.com/hss/storage/midas/ef8b1e08c2e0329ba693eb034df704b0/206154556/quant-ed.jpg"  style="height: 500px; width:800px" alt="Image">
+                <div class="carousel-caption">
+                    <h4 style="color: white; text-align: center">Fig. 1: The quantum computer</h4>
+                </div>
+            </div>
+          
+              <div class="item">
+                <img class="center-block" src="https://www.mtg.de/export/sites/default/.galleries/images/3-Technologien/MTG_PQC_02_720.png" style="height: 500px; width:800px" alt="Image">
+                <div class="carousel-caption">
+                        <h4 style="color: black; text-align: left">Fig. 2: Making of a quantum computer</h4>
+                </div>
+            </div>
+          
+              <div class="item">
+                <img class="center-block" src="https://www.ntt-review.jp/archive_html/201903/images/fa4_fig01.jpg" style="height: 500px; width:1000px" alt="Image">
+                <div class="carousel-caption">
+                        <h4 style="color: black; text-align:left">Fig. 3: Research in post-quantum cryptography</h4>
+                </div>
+            </div>
+            </div>
+          
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+    </div>
+
+    <a id="section1"></a>
+        <div class="container">
+            <h2 style="text-align: center">Introduction</h2><br><br>
+            <h4><p>More of our personal lives and business activities are being conducted online than ever, making cybersecurity a key 
+            issue of our time. Understanding what the future of cybersecurity is will show you how to make the best use of your 
+            resources and stay safe not just today, but tomorrow too. 
+            The future of cybersecurity is hard to predict because the industry is constantly evolving in response to the shifting behaviors of cybercriminals and the new attacks they develop.</p> 
+            <br><br>
+            <p>Here’s some insights from industry insiders on what they think the future of cybersecurity will look like:</p></h4>
+            <br>
+            <blockquote cite="https://www.disruptordaily.com/">“The future of cybersecurity will be largely determined by what hackers 
+            will be after. 
+            And I think this will primarily be in two areas: Health and Wealth. More specifically, this means private healthcare-related 
+            data and sensitive payment information. Private health records can be worth a fortune. Credit card data can be used for fraud 
+            or sold on the black market.” (John Shin, Managing Director at RSI Security)</blockquote>
+            <br>
+            <blockquote cite="https://www.disruptordaily.com/">“Hackers will continue to be more sophisticated, using new methods and tools 
+            to gain access to private information. At the same time, technology will continue to evolve, providing hackers with an even 
+            larger attack surface and more vulnerabilities to exploit. Even unsophisticated hackers will automate their strategies in their 
+            efforts to infiltrate vulnerable companies. Hackers will also take advantage of the fact that companies increasingly rely on 
+            their supply chains and will target popular third-party tools, suppliers and companies as a way to breach as many targets as 
+            possible.
+            To defend against such cyberattacks, companies will need to use more effective security solutions with innovative approaches. 
+            For instance, companies will assess their cybersecurity as seen from the hacker’s point of view. The goal will be to not only 
+            increase cyber resilience internally within their specific company, but also across the company’s supply chain.” (Matan Or-El, 
+            co-founder and CEO of Panorays)
+            </blockquote>
+            <br>
+            <blockquote cite="https://www.disruptordaily.com/">“The future of cyber security practice is very bright! As software systems
+            and applications get more complex, the potential for cyber vulnerabilities and gaps will increase exponentially. Furthermore,
+            as more and more high-value information (such as health information, contract data, financial data, etc.) is collected, 
+            stored and shared through connected cyber environments over the next decade and beyond, the need for cyber security expertise
+            will explode to combat the expected concurrent increase in cyber hacking and criminal activity.” (Sarbari Gupta, PhD, CISSP,
+            CISA, President & CEO of Electrosoft Services)</blockquote>
+            <br>
+        </div>
+        <hr><a id="section2"></a>
+        <div class="container">
+            <h2 style="text-align: center">An Emerging Threat: Quantum Computers</h2><br><br>
+            <h4>
+                 <p>It’s the year 2035: Quantum computers are capable of cracking all of the public-key algorithms that provided 
+                    protection for sensitive data back in 2019. Hackers use quantum computers to access information in private emails, 
+                    while state authorities use them to obtain data belonging to suspicious institutions. Debit card payments are no 
+                    longer possible, and trading in cryptocurrencies such as Bitcoin is vulnerable to attack.</p>
+                <br>
+                <p>This scenario seems unrealistic from our current perspective. Researchers predict, however, that in ten to
+                    fifteen years there will be functioning quantum computers capable of calculating mathematical problems such 
+                    as the prime factorization of very large numbers millions of times faster than today’s normal computers. And 
+                    those quantum computers would be able to crack encryption methods which we now believe to be secure. How 
+                    realistic is this prediction, and what does it mean for the IT security industry?</p>
+                <br>
+                <p>Normal computers store information in the form of bits, which can assume two different states: 0 or 1. 
+                    The computing speed of a normal computer depends on various aspects of the machine, including the number 
+                    of processor cores and the sizes of the cache and memory. A quantum computer, on the other hand, calculates 
+                    quantum bits, also known as qubits. Qubits can not only assume the states 0 and 1, but an infinite number of 
+                    intermediate states as well. This principle is called superposition and arises from quantum mechanical effects
+                    that are not yet fully understood. The qubits are in this superimposed state until they are measured.</p>
+                <br>
+                 <p>Although research on quantum computers has been going on for over 20 years, it has not yet been possible to 
+                    develop a commercially usable quantum computer. Major institutions such as the NSA, Google, IBM and Microsoft 
+                    are working to develop high-performance quantum computers. At the beginning of this year, IBM introduced a 
+                    non-commercial quantum computer measuring 2.5 by 2.5 meters that operates on 20 qubits. A quantum computer with 
+                    as few as 50 qubits would be faster than a supercomputer that uses many processors.</p>
+            </h4>
+            <h4><br><br><p style="text-align:center">The videos below show in more detail how quantum computers work:</p><br><br>
+                <div class="btn-group btn-group-justified">
+                        <a href="https://www.youtube.com/watch?v=JhHMJCUmq28" class="btn btn-primary">Quantum Computers Explained – Limits of Human Technology(Kurzgesagt)</a>
+                        <a href="https://www.youtube.com/watch?v=PzL-oXxNGVM" class="btn btn-primary">Quantum Computers - FULLY Explained!(ColdFusion)</a>
+                </div>
+            </h4>
+        </div>
+        <hr><a id="section3"></a>
+        <div class="container">
+            <h2 style="text-align: center">Protecting Data From Quantum Computers: Post-quantum Cryptography</h2><br><br>
+            <h4>
+                <p>Research is already being performed on new quantum-resistant encryption algorithms to prevent the decryption of 
+                    methods that we have come to believe are secure. This area of research is called post-quantum cryptography. 
+                    Established asymmetric public-key encryption methods such as RSA multiply large prime numbers together for their 
+                    encryption. It would take normal computers decades to factorize the primes again, which is why the procedures were 
+                    considered secure until now. However, an algorithm has already been developed for quantum computers that can 
+                    factorize large numbers into prime factors and crack asymmetric encryption in a matter of minutes. Right now, 
+                    this algorithm exists only in theory, since quantum computers are not yet powerful enough to run it. The number of
+                    qubits needed to quickly crack asymmetric encryption methods is fairly well known: Between 2,300 and 4,000.</p>
+                <br>
+                <p>The development of quantum-resistant encryption methods shows that the threat posed by quantum computers is 
+                    being taken seriously. However, when and whether quantum computers will be operational at all is completely 
+                    unclear. According to a May 2018 study entitled The State of Development of Quantum Computers published by 
+                    the German Federal Office for Information Security (BSI), because of the high cost of error correction, 
+                    it is “in the foreseeable future unlikely, and probably also economically unattractive, for academic and 
+                    industrial laboratories to realize a cryptographically relevant quantum computer.” For intelligence agencies, 
+                    however, this development may indeed prove more relevant. How realistic the quantum-computing threat is depends 
+                    on how much progress is made in the development of quantum computers and on what effective, quantum-resistant 
+                    encryption methods are being developed.</p>
+            </h4>
+            <h4><br><br><p style="text-align:center">To find out more about post-quantum cryptography, watch the videos below:</p><br><br>
+                <div class="btn-group btn-group-justified">
+                        <a href="https://www.youtube.com/watch?v=6qD-T1gjtKw" class="btn btn-primary">Understanding and Explaining Post-Quantum Crypto with Cartoons(RSA Conference)</a>
+                        <a href="https://www.youtube.com/watch?v=lvTqbM5Dq4Q" class="btn btn-primary">How Quantum Computers Break Encryption | Shor's Algorithm Explained(minutephysics)</a>
+                </div>
+            </h4>
+        </div>
+    </div>
+
     <hr>
-    <div class="container">
-    	<div class="jumbotron">
-    		<p style="text-align: center; font-size: 22px;">
-    			These days most of the world is connected in a vast and evergrowing network that we uniformly call the Internet.
-    			Our current estimates show, that the Internet is accessible to a mindboggling 4.66 billion people. That is, about 60%
-    			of the entire population can go and explore this web of seemingly limitless information and possibilities.
-    		</p>
-    	</div>
-    	<hr>
-
-		  <div class="row">
-		    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		    	<div class="jumbotron">
-
-			      <p>
-	    			With this great connectivity, of course, comes a great need for sophisticated cybersecurity as well as innovative encryption algorithms.
-	    			The safeguarding tactics used to protect user privacy information and authentication methodology has come a long way in the past century or so.
-	    			[instert some generalised notes from the past security webpage].
-				</https://cdn.mos.cms.futurecdn.net/2gVbEEkFcKhTStZYb4k9yD-1200-80.jpgp>
-				<p>
-					Even though computer power has increased by many orders of magnitude, the main principles regarding information security have remained the same.
-					The fundamental tenets of information security are confidentiality, integrity, and availability. According to the LBMC,
-					every element of an information security program should be designed to achieve one or more of these principles.
-					As such, many programmers aim to implement security measures that are both incredibly difficult to break, but intuitive to use, implement and control.
-				</p>
-				</div>
-		    </div>
-		    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-		      	<img src="https://cdn.mos.cms.futurecdn.net/2gVbEEkFcKhTStZYb4k9yD-1200-80.jpg" width="540px" height="360px">
-		    </div>
-		  </div>
-		 
-		 
-		 <hr>
-
-		  
-
-		  <div class="jumbotron">
-		  		<p>
-				To dive into the specific examples of modern cybersecurity, it would be useful to firstly have a look at the most common threats that we have to identify and learn to combat.
-			</p>
-			<p>
-				One of the most common forms of cybernetic threats out there are not even based in the digital world,
-				but instead focuses on manipulating human beings and is often referred to as social engineering.
-				Phishing attacks are a subset of social engineering strategy that imitate a trusted source and concoct a seemingly logical scenario
-				for handing over login credentials or other sensitive personal data. They also can take advantage of a person's weaknesses, curiosity,
-				greed or empathy. Various baiting scenarios ranging from too-good-to-be-true advertisements to having wills of royalties
-				being places on ones account can be used to deceive users from all around the globe. All of this combined can lead to
-				even the most tightly cyber-secured places on Earth being susceptible to outsiders with a confident and convincing voice.
-			</p>
-			<p>
-				The most well know and most often thought of threat that people want to be protected from is hacking.
-				There are two types of people that can fall into this category: white hats and black hats. The former tries to centre their work around
-				helping companies find bugs and holes in their security protocols and, as a result, are not regarded as criminals,
-				while the latter tries to exploit systems for financial or other gains. Talented black hats can lead to devastating consequences for even the biggest of companies.
-				For instance, in May of 2014, eBay reported an attack that stole about 145 million user accounts, including names, addresses, dates of birth and encrypted passwords.
-				The online auction giant said hackers used the credentials of three corporate employees to access its network and had complete access for 229 days—more than enough time to compromise the user database.
-				And this is only one of many examples. Taking a broader view of the situation, even whole countries themselves from all around the world are currently involved in a silent global cyberwar,
-				where new attacks are performed every single second. The general map of it can be seen on this website here. It is indeed a scary world, so we need to find ways to ensure as much protection of our privacy and information as we can.
-			</p>
-			<p>
-				Finally, we have various malicious malware which can range from adding an annoying screen-melting effect to having all of your data locked in a virtually unbreakable vault,
-				only accessible after you pay ransom hundreds of dollars. Malware can come in various shapes and sizes: rapidly replicating worms,
-				innocent-looking trojans, a myriad of viruses, rootkits, ransomware and many more. This software was created with the intention of
-				either stealing information by infiltrating deeply into the user's operating system or to simply hinder the hardware of the victim.
-				There are famous cases of malware getting into the safest computer strongholds when a naive employee decided to plug in
-				an innocent-looking USB stick into one of the computers and then have the whole system become compromised because of the code stored in the flash drive.
-			</p>
-		  </div>
-		 
-    	
-		<hr>
-		
-
-		<div class="jumbotron">
-			<p>
-				Overall, these threats sound worrisome and sometimes disguise themselves incredibly well, thus are difficult to avoid.
-				Luckily, the brilliant people in the ever-changing world of Computer Science are coming up with ideas of how to deal with these serious issues every single day.
-			</p>
-			<hr>
-			<p>
-				To start with, the encryption methods that are currently being implemented would take an outside observer billions upon billions of years to break.
-				At this current time, encrypting data works with the principle of asymmetric encryption. It uses two keys, which are 2 strings seemingly random data,
-				a public key and a private key. The beauty of this system is that when one key is used for encrypting, and the only way to decrypt it is to use the other key of the pair.
-				This entails, that you can share the encryption key to anyone in the world and only the person with the other corresponding key can decrypt any meaningful information.
-				One of the most famous encryption algorithms at the moment is called the SHA-256 encryption algorithm,
-				which has a whopping 2 to the power of 256 or 115 quattuorvigintillion (that’s a 78 digit number)  possibilities.
-				There is a fun way of visualising the computational power needed to break this cypher and it can be seen in this link here.
-				Though the most unbelievable fact of this is that a user who has the private key can access the hidden information in the blink of an eye.
-				This is what keeps our online bank accounts safe, our Facebook profiles confidential and your Bitcoins... 
-				hus, no hacker would invest the time needed to steal private information from other users. At least until the infamous P = NP problem is solved.
-			</p>
-			<p>
-				The other perhaps less interesting, but yet still integrally important part of user protection is practising common sense when accessing the Internet and using Anti-malware software.
-				The golden rule is that: when something is too good to be true, it most probably is. For average Interner explorers, this simple rule is enough to escape from phishing attacks and spam emails.
-				Another use of logical thinking is to avoid unrecognisable dodgy-looking websites as well as clicking on links which can lead to dangerous fraud webpages.
-				The latter of which from first glance would seem to be difficult to check without visiting the page, but one only needs to look in the bottom left corner of their web browser to see the link address.
-				Here, try it with this link. Make sure not to click it! 
-	...
-			</p>
-			<p>
-				To combat the threats posed by social engineering, companies usually invest time and financial resources in training their workers on proper safety procedures and using two-factor authentication for everything.
-				Since any system is as strong as its weakest link, this strategy is essential to preemptively prepare for any manipulative attackers.
-				Finally, the problem of malware is solved by using software strictly created to detect and neutralise it before it has the time to initialise its attack,
-				or otherwise called anti-malware. These programs have frequently updating databases to protect users from any zero-day attacks.
-				All of these tools help discourage any cyberthieves from ever trying to steal or infiltrate other systems.
-			</p>
-		</div>
-		<hr>
-		<div class="jumbotron">
-			<p>
-				Today we have a pretty sturdy foundation regarding cybersecurity and all of its intricacies. Unfortunately, the driving force for these new security implementations,
-				innovation, is also leading to some problems of its own. For instance, the advent of quantum computing can spell the end for the main encryption methods such as the aforementioned SHA-256,
-				since it can do the incredible amount of checks in only a fraction of the time. Also, AI and machine learning algorithms are getting much better at guessing most used passwords.
-				All of these problems are worries for the future though, so we will cross that bridge once we get there.
-		</p>
-		</div>
-		
-		<hr>
-
-		<div class="jumbotron">
-			<h4>Sources: </h4> <br>
-			https://www.statista.com/statistics/617136/digital-population-worldwide/<br>
-			https://www.lbmc.com/blog/three-tenets-of-information-security/<br>
-			https://www.fireeye.com/cyber-map/threat-map.html<br>
-			https://www.youtube.com/watch?v=_GzE99AmAQU&list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye&index=33<br>
-			https://www.youtube.com/watch?v=S9JGmA5_unY<br>
-			https://www.malwarebytes.com/hacker/<br>
-			https://www.webroot.com/us/en/resources/tips-articles/what-is-social-engineering<br>
-			https://www.csoonline.com/article/2130877/the-biggest-data-breaches-of-the-21st-century.html<br>
-		</div>
-		<hr>
-		<footer>
-			<h4>Author: </h4> <br>
-			<h4>LinkedIn: </h4>
-		</footer>
-	</div>
-    </div>
-    </div>
+    <div class="container-fluid text-center" > 
+            <a href="#demo1" data-toggle="collapse"><h3>Author</h3><br></a>
+            <div id="demo1" class="collapse">
+                    <p>Created this website</p>
+                    <br>
+                    <p><strong>Name</strong></p><br>
+                    <img src="https://image.flaticon.com/icons/png/512/18/18601.png" class="img-circle person" alt="Random Name" style="height: 200px; width: 200px">
+                    <br><br>
+                    <p>(College emblem)</p>
+                    <p>Contact info</p>
+            </div>
     </div>
 
-    	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  </body>
+    <footer class="container-fluid text-center">
+            <a href="#TopOfPage" title="To Top">
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            </a>
+            <p>Page Created For Programming Practical</p>
+    </footer>
+
+</body>
 </html>
