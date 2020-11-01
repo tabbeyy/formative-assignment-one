@@ -1,0 +1,167 @@
+####################################
+#Input and out-of-range number check.
+####################################
+
+	IN
+	STO	n
+	STO	whole
+	BRZ	final
+	SUB	one
+	BRZ	final
+	LDA	twelve
+	STO	times
+	SUB	times
+	STO	numb
+	LDA	one
+	STO	counter
+	OUT
+
+####################################
+#Incrementation of the counter and
+#check if it has reached the square root of n.
+####################################
+
+loop	LDA	counter
+    	ADD 	one
+    	STO 	counter
+	SUB	whole
+	BRP	repeat
+
+####################################
+#Initialization of "times" variable and praparation for the division loop;
+#this way the algorithm can get through the low numbers faster.
+####################################
+
+	LDA	times
+	ADD	twelve
+	STO	times
+	SUB	times
+	STO	whole
+	LDA	n
+
+####################################
+#The Quick Loop
+####################################
+
+first	STO	temp
+	LDA	whole
+	ADD	twelve
+	STO	whole
+	LDA	temp
+    	SUB 	times
+	BRZ	output
+	BRP	first
+
+####################################
+#Preparing for the same, but more precise loop.
+####################################
+	
+	LDA	whole
+	SUB	twelve
+	STO	whole
+	LDA	temp
+
+precise	STO	temp
+	LDA	whole
+	ADD	one
+	STO	whole
+	LDA	temp
+    	SUB 	counter
+	BRZ	output
+	BRP	precise
+	BR	loop
+
+####################################
+#Section where if a number is a divisor, it is printed.
+#The "whole" value stores the product of the division; when the product is equal or greater than the divisor,
+#	then that means we have reached or surpassed the square root of n.
+#After the square root threshold has been reached, that means that all of the divisors have been acquired.
+####################################
+	
+output	LDA	counter
+	OUT
+	SUB	whole
+	BRP	repeat
+	LDA	numb
+	ADD	one
+	STO	numb
+
+####################################
+#The initialisation of the stack:
+#1) Find the pointer of the next free space available in memory.
+#2) Store the value of the product for later use.
+####################################
+
+	LDA	final
+	SUB	offset
+	ADD	numb
+	STO	store
+	LDA	whole
+store	DAT
+	BR	loop
+
+####################################
+#The output of the stack:
+#1) Find the pointer of the last divisor put in memory.
+#2) Output it.
+#3) Repeat, until the stack is empty.
+####################################
+
+repeat	LDA	numb
+	BRZ	final
+	LDA	final
+	ADD	numb
+	STO	back
+back	DAT
+	OUT
+	LDA	numb
+	SUB	one
+	STO	numb
+	BR	repeat
+
+####################################
+#The dataset:
+####################################
+
+
+counter	DAT		#The counter incrementing from 2 to n.
+temp	DAT		#Temporary value for calculations.
+whole	DAT		#Variable, which stores the product of division.
+one	DAT	001
+twelve	DAT	012
+offset	DAT	200	#Used for changing from a Load operation (500) to a store (300) one.
+numb	DAT	000	#Variable, which shows the number of divisors in the stack.
+times	DAT	000	#Variable, which is a multiple of the counter.
+n	DAT	000	#The inputed number.
+aaa	DAT	000
+bbb	DAT	000
+ccc	DAT	000
+ddd	DAT	000
+eee	DAT	000
+fff	DAT	000
+ggg	DAT	000
+hhh	DAT	000
+iii	DAT	000
+jjj	DAT	000
+kkk	DAT	000
+lll	DAT	000
+mmm	DAT	000
+nnn	DAT	000	#The Stack[15] (15, because the largest number of divisors a number below 1000
+ooo	DAT	000	#has 15 divisors after the square root, excluding n itself).
+
+####################################
+#Stack buffer, just in case.
+####################################
+
+buffer	DAT	000
+
+####################################
+#Print n and Halt.
+####################################
+
+final	LDA	n
+	OUT
+stop	HLT
+
+####################################
+
